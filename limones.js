@@ -22,6 +22,7 @@ function dibujarPersonaje(){
     ctx.fillRect(personajeX,canvas.height-(ALTURA_SUELO+ALTURA_PERSONAJE),ANCHO_PERSONAJE,ALTURA_PERSONAJE);
 }
 
+//mover izquierda
 function moverIzquierda(){
     personajeX -= 10;
     actualizarPantalla();     
@@ -35,4 +36,10 @@ function actualizarPantalla(){
 
 function limpiarCanva(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
+}
+
+//mover derecha
+function moverDerecha(){
+    personajeX += 10;
+    actualizarPantalla();     
 }
