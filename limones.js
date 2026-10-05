@@ -119,3 +119,27 @@ function aparecerLimon(){
     limonY = 0;
     actualizarPantalla();
 }
+
+
+function reiniciar(){    
+    vidas = 3;
+    puntaje = 0;
+    velocidadCaida = 200;
+    
+    personajeX = canvas.width/2;
+    personajeY = canvas.height-(ALTURA_SUELO+ALTURA_PERSONAJE);
+    limonX = canvas.width/2;
+    limonY = 0;
+    
+    //detener el intervalo anterior si existe
+    if (intervalo) {
+        clearInterval(intervalo);
+    }
+    
+    //actualiza pantalla valores iniciales
+    mostrarEnSpam("txtPuntaje", puntaje);
+    mostrarEnSpam("txtVidas", vidas);
+    
+    //comenzar de nuevo
+    iniciar();
+}
