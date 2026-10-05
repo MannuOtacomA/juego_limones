@@ -6,3 +6,7 @@ function generarAleatorio(min,max){
 }
 
 
+function mostrarEnSpam(id,valor){
+    let cmpPuntaje = document.getElementById(id);
+        cmpPuntaje.textContent = valor;
+}
