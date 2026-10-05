@@ -9,6 +9,7 @@ let limonX = canvas.width/2, limonY=0;
 const ALTO_LIMON =20, ANCHO_LIMON = 20
 let puntaje = 0;
 let vidas = 3;
+let velocidadCaida = 200;
 
 //posiscion inicial personaje
 let personajeX = canvas.width/2;
@@ -16,6 +17,7 @@ let personajeY = canvas.height-(ALTURA_SUELO+ALTURA_PERSONAJE);
     
 
 function iniciar(){
+    setInterval(bajarLimon,velocidadCaida);//ejecuta funcion cada medio seg
     dibujarSuelo();
     dibujarPersonaje();
     //dibujarLimon();
@@ -92,6 +94,10 @@ function detectarPiso(){
         //let cmpPuntaje = document.getElementById("txtVidas");
         //cmpPuntaje.textContent = vidas;
         mostrarEnSpam("txtVidas",vidas);
+        if (vidas == 0) {
+            alert("Gamer Over");
+            
+        }
     }
 }
 
