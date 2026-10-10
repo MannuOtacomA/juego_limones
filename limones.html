@@ -1,28 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Caza Estrellas</title>
-  <link rel="stylesheet" href="limones.css" />
-  <script src="utils.js"></script>
- 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍋 Atrapar Limones</title>
+  <link rel="stylesheet" href="limones.css">
 </head>
-<body onload="iniciar()">
-  <div class="contenedor">
-    <h1>Atrapar Limones</h1>
-    <p>Si del cielo te caen limones ..... </p>
-    <h2>Creado por: MEOT</h2>
-    <canvas id="areaJuego" width="600" height="400" > </canvas>
-    <div class="panel">
-      <p>Puntaje: <span id="txtPuntaje">0</span></p>
-      <p>Vidas: <span id="txtVidas">3</span></p>
+<body>
+
+<div class="contenedor-juego">
+  
+  <!-- Encabezado -->
+  <header class="encabezado">
+    <h1>🍋 Atrapar Limones 🍋</h1>
+    <p class="subtitulo">¡Si del cielo te caen limones, atrápalos todos!</p>
+    <p class="autor">Creado por: <strong>MEOT</strong></p>
+  </header>
+
+  <!-- Panel de puntuación -->
+  <div class="panel-info">
+    <div class="caja-info puntaje">
+      <span class="icono">⭐</span>
+      <div class="info-texto">
+        <small>Puntaje</small>
+        <strong id="txtPuntaje">0</strong>
+      </div>
     </div>
-    <div class="botones">
-      <button onclick="moverIzquierda()">Izquierda</button>
-      <button onclick="moverDerecha()">Derecha</button>
-      <!--<button onclick="bajarLimon()" >Bajar limon</button> -->     
-      <button onclick="reiniciar()">Reiniciar</button>
+    
+    <div class="caja-info vidas">
+      <span class="icono">❤️</span>
+      <div class="info-texto">
+        <small>Vidas</small>
+        <strong id="txtVidas">3</strong>
+      </div>
     </div>
   </div>
-  <script src="limones.js"></script>
+
+  <!-- Área de juego -->
+  <div class="area-juego-wrapper">
+    <canvas id="areaJuego" width="500" height="400"></canvas>
+    <div class="overlay-inicio" id="overlayInicio">
+      <div class="mensaje-inicio">
+        <h2>🎮 ¡Listo para jugar!</h2>
+        <p>Usa los botones o las flechas ← →</p>
+        <button onclick="iniciar()" class="btn-iniciar">▶ Comenzar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controles -->
+  <div class="controles">
+    <button onclick="moverIzquierda()" class="btn-control" title="Mover izquierda">
+      ⬅ Izquierda
+    </button>
+    <button onclick="reiniciar()" class="btn-control btn-reiniciar" title="Reiniciar juego">
+      🔄 Reiniciar
+    </button>
+    <button onclick="moverDerecha()" class="btn-control" title="Mover derecha">
+      Derecha ➡
+    </button>
+
+    <button onclick="desaparecerPersonaje()" class="btn-control" title="Mover derecha">
+      Desaparecer Personaje
+    </button>
+  </div>
+
+</div>
+
+<script src="limones.js"></script>
+
 </body>
 </html>
