@@ -11,6 +11,8 @@ let velocidadCaida = 200;
 let intervalo;
 let juegoIniciado = false;
 
+let personajeVisible = true;//se agrega=======prueba 10/10/2026
+
 // Posición inicial personaje
 let personajeX = canvas.width/2;
 let personajeY = canvas.height - (ALTURA_SUELO + ALTURA_PERSONAJE);
@@ -40,8 +42,11 @@ function dibujarSuelo() {
   ctx.fillRect(0, canvas.height - ALTURA_SUELO, canvas.width, ALTURA_SUELO);
 }
 
-
+//dibuja personaje
 function dibujarPersonaje() {
+
+  if (!personajeVisible) return; //se agrega=======prueba 10/10/2026
+
   // Personaje con sombra
   ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
   ctx.shadowBlur = 10;
@@ -245,7 +250,10 @@ document.addEventListener('keydown', function(event) {
 });
 
 
-function desaparecerPersonaje(){  
-  ctx.clearRect((personajeX, personajeY, ALTURA_PERSONAJE, ANCHO_PERSONAJE));
-  //limpiarCanva();
+function desaparecerPersonaje(){  //se agrega=======prueba 10/10/2026
+
+  personajeVisible = false;  
+  
+  actualizarPantalla();
+  clearInterval(intervalo);
 }
